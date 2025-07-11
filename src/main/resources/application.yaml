@@ -1,0 +1,19 @@
+server:
+  port:8087
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ead_authuser
+    username: postgres
+    password: senha@banco
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostGreSQLDialect
+      jdbc:
+        lob.non-contextual: true
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
