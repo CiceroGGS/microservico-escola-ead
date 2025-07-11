@@ -1,6 +1,6 @@
 package com.ead.authuser.enums;
 
-public enum UserTyes {
+public enum UserType {
     ADMIN,
     STUDENT,
     INSTRUCTOR

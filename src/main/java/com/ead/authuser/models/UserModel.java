@@ -3,18 +3,25 @@ package com.ead.authuser.models;
 import java.io.Serializable;
 
 import com.ead.authuser.enums.UserStatus;
+import com.ead.authuser.enums.UserType;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.usertype.UserType;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "TB_USERS")
 public class UserModel implements Serializable {
+
+    /*************************************************************************/
     private static final long serialVersionUID = 1L;
+    /*************************************************************************/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +34,7 @@ public class UserModel implements Serializable {
     private String email;
 
     @Column(nullable = false, length = 255)
+    @JsonIgnore
     private String password;
 
     @Column(nullable = false, length = 150)
@@ -50,9 +58,12 @@ public class UserModel implements Serializable {
     private String imageUrl;
 
     @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime creationDate;
 
     @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime lastupdateDate;
+    /*************************************************************************/
 
 }
