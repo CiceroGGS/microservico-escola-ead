@@ -36,6 +36,7 @@ public class UserController {
                 .map(userModel -> ResponseEntity.<Object>ok(userModel))
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found bro !!!"));
     }
+    /*************************************************************************/
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteUserById(@PathVariable(value = "id") UUID id) {
@@ -47,4 +48,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.OK).body("User deleted success !!!");
         }
     }
+    /*************************************************************************/
+
 }

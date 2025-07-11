@@ -3,8 +3,6 @@ package com.ead.authuser.services.impl;
 import com.ead.authuser.models.UserModel;
 import com.ead.authuser.repository.UserRepository;
 import com.ead.authuser.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,4 +40,19 @@ public class UserServiceImpl implements UserService {
     public void delete(UserModel user) {
         userRepository.delete(user);
     }
+
+    @Override
+    public UserModel save(UserModel userModel) {
+        return userRepository.save(userModel);
+    }
+
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    /*************************************************************************/
 }
