@@ -43,7 +43,9 @@ public class AuthenticationController {
 
         var userModel = new UserModel();
 
+        // Convert UserDTO to UserModel ;)
         BeanUtils.copyProperties(userDTO, userModel);
+
         userModel.setUserStatus(UserStatus.ACTIVE);
         userModel.setUserType(UserType.STUDENT);
         userModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
