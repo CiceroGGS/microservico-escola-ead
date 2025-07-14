@@ -9,6 +9,12 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
 
+    public interface IUserView {
+        public static interface Registration{}
+        public static interface userPut {}
+        public static interface PasswordPut {}
+        public static interface ImagePut {}
+    }
     /*************************************************************************/
 
     private UUID userId;
